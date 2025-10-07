@@ -29,10 +29,19 @@ class Ave(Animal):
     pass
 
 class Leao(Mamifero):
-    pass
+    def emitir_som(self):
+        return "Rugido"
 
 class Pinguim(Ave, INadador):
-    pass
+    def emitir_som(self):
+        return "Piu"
+    
+    def nadar(self):
+        return f"{self.__nome} está nadando."
 
 class Aguia(Ave, IVoador):
-    pass
+    def emitir_som(self):
+        return "Grito agudo"
+    
+    def voar(self):
+        return f"{self.__nome} está voando alto."
