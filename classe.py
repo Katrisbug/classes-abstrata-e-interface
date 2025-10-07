@@ -2,15 +2,15 @@ from abc import ABC, abstractmethod
 
 class Animal(ABC):
     def __init__(self, nome:str, idade:int):
-        self.__nome = nome
-        self.__idade = idade
+        self._nome = nome
+        self._idade = idade
 
-        @abstractmethod
-        def emitir_som(self):
-            pass
+    @abstractmethod
+    def emitir_som(self):
+        pass
 
-        def descrever():
-            return f'{self.__nome} tem {self.__idade} anos.'
+    def descrever(self):
+        return f'{self._nome} tem {self._idade} anos.'
         
 class IVoador (ABC):
     @abstractmethod
@@ -37,11 +37,31 @@ class Pinguim(Ave, INadador):
         return "Piu"
     
     def nadar(self):
-        return f"{self.__nome} está nadando."
+        return f"{self._nome} está nadando."
 
 class Aguia(Ave, IVoador):
     def emitir_som(self):
         return "Grito agudo"
     
     def voar(self):
-        return f"{self.__nome} está voando alto."
+        return f"{self._nome} está voando alto."
+
+def interagir_no_zoologico(animais):
+    for animal in animais:
+        print(animal.descrever())
+        animal.emitir_som()
+
+        if isinstance(animal, IVoador):
+            animal.voar()
+
+        if isinstance(animal, INadador):
+            animal.nadar()
+
+#------------------------------------------------------
+if __name__ == '__main__':
+    leao = Leao("Simba", 5)
+    pinguim = Pinguim("Tux", 3)
+    aguia = Aguia("Altair", 4)
+
+    animais = [leao, pinguim, aguia]
+    interagir_no_zoologico(animais)
