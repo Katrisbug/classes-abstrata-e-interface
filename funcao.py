@@ -11,8 +11,9 @@ def interagir_no_zoologico(animais: list):
         print()
 
 #------------------------------------------------------
-leao = Leao("Simba", 5)
-pinguim = Pinguim("Tux", 3)
-aguia = Aguia("Altair", 4)
-animais = [leao, pinguim, aguia]
-interagir_no_zoologico(animais)
+if __name__ == '__main__':
+    leao = Leao("Simba", 5)
+    pinguim = Pinguim("Tux", 3)
+    aguia = Aguia("Altair", 4)
+    animais = [leao, pinguim, aguia]
+    interagir_no_zoologico(animais)
