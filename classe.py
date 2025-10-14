@@ -23,16 +23,30 @@ class INadador(ABC):
         pass
 
 class Mamifero(Animal):
-    pass 
+    def __init__(self, nome, idade):
+        super().__init__(nome, idade)
+
+    def emitir_som(self):
+        return '...' 
 
 class Ave(Animal):
-    pass
+    def __init__(self, nome, idade):
+        super().__init__(nome, idade)
+
+    def emitir_som(self):
+        return '@@@'
 
 class Leao(Mamifero):
+    def __init__(self, nome, idade):
+        super().__init__(nome, idade)
+
     def emitir_som(self):
         return "Rugido"
 
 class Pinguim(Ave, INadador):
+    def __init__(self, nome, idade):
+        super().__init__(nome, idade)
+
     def emitir_som(self):
         return "Piu"
     
@@ -40,6 +54,9 @@ class Pinguim(Ave, INadador):
         return f"{self._nome} está nadando."
 
 class Aguia(Ave, IVoador):
+    def __init__(self, nome, idade):
+        super().__init__(nome, idade)
+        
     def emitir_som(self):
         return "Grito agudo"
     
